@@ -69,7 +69,6 @@ jobs:
             - [ ] TODO
           labels: "release"
           branch: "release/${{ steps.changelog.outputs.version }}"
-          base: "develop"
 
         # Print some important Notes
       - name: 🏁 Result
