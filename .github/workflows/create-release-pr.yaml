@@ -44,6 +44,7 @@ jobs:
         run: |
           version=$(node -p 'require("./lerna.json").version')
           echo "::set-output name=version::${version}"
+
         # Create the Pull Request
       - name: 📤 Create Pull Request
         id: create-pull-request
