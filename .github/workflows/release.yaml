@@ -1,3 +1,5 @@
+# TODO decide weather using changesets or doing it on your own
+
 name: release
 on:
   push:
@@ -21,7 +23,7 @@ jobs:
           node-version: 12
 
         # Install Dependencies
-      - name: ⏳ Install
+      - name: ⏳ Install Dependencies
         run: yarn install
 
         # Creates Release Pull Request with help of 'Changesets'
@@ -55,7 +57,7 @@ jobs:
 #         node-version: 12
 
 #       # Install Dependencies
-#     - name: ⏳ Install
+#     - name: ⏳ Install Dependencies
 #       run: yarn install
 
 #       # Configure Git User so that it can perform Git Actions like commits
