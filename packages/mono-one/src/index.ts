@@ -11,6 +11,6 @@ export default class MonoOne {
     }
 
     public getRandomString():string {
-        return "random1";
+        return "random2";
     }
 }
