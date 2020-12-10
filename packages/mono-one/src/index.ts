@@ -9,4 +9,8 @@ export default class MonoOne {
         this.name = value;
         return this;
     }
+
+    public getRandomString():string {
+        return "random1";
+    }
 }
