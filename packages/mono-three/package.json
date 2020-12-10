@@ -1,0 +1,27 @@
+{
+  "name": "@bennodev/mono-three",
+  "version": "0.0.0",
+  "author": "BennoDev",
+  "license": "ISC",
+  "homepage": "https://agile-ts.org/",
+  "description": "Dummy Package",
+  "keywords": [],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev-publish": "yalc publish",
+    "dev-push": "yalc push",
+    "watch": "tsc-watch --onSuccess \"npm run dev-push\""
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agile-ts/github-actions-test.git"
+  },
+  "files": [
+    "dist/**/*"
+  ]
+}
