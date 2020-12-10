@@ -1,3 +1,5 @@
+// http://orlandobayo.com/blog/monorepo-testing-using-jest/
+
 const baseConfig = require("./jest.config.base.js");
 
 module.exports = {
