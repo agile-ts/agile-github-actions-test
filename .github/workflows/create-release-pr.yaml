@@ -35,7 +35,7 @@ jobs:
 
         # Create new Version
       - name: 🗽 New Version
-        run: lerna version --conventional-commits --no-git-tag-version --yes
+        run: yarn run new-version
 
         # Adds the above created version to the output so that we can get it later in the pull request with 'steps.changelog.outputs.version'
       - name: 🖋 Set new Version to Output
