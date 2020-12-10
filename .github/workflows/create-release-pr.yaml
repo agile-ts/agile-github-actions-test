@@ -48,7 +48,7 @@ jobs:
         # Create the Pull Request
       - name: 📤 Create Pull Request
         id: create-pull-request
-        uses: peter-evans/create-pull-request@v3 # https://github.com/peter-evans/create-pull-request
+        uses: peter-evans/create-pull-request@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           path: ${{ secrets.GITHUB_PATH }}
@@ -58,10 +58,13 @@ jobs:
           title: "v${{ steps.changelog.outputs.version }}"
           body: |
             ## v${{ steps.changelog.outputs.version }}
+
             ### Breaking Changes
             - [ ] TODO
+
             ### Features
             - [ ] TODO
+
             ### Bug Fixes
             - [ ] TODO
           labels: "release"
