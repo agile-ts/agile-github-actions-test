@@ -1,11 +1,11 @@
-name: release
+name: test
 on:
   push:
     branches: ["*"]
 
 jobs:
   publish:
-    name: Publish
+    name: Test
     runs-on: ubuntu-latest
     steps:
 
