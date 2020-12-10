@@ -17,8 +17,8 @@ jobs:
       # Setup NodeJS
       - name: 🟢 Setup Node ${{ matrix.node_version }}
         uses: actions/setup-node@v1
-      with:
-        node-version: 12
+        with:
+          node-version: 12
 
         # Install Dependencies
         - name: ⏳ Install
