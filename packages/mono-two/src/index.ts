@@ -9,4 +9,9 @@ export default class MonoTwo {
         this.name = value;
         return this;
     }
+
+
+    public getRandomString():string {
+        return "random0";
+    }
 }
