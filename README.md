@@ -11,7 +11,8 @@
      - **4.2** Creates new Release and Tag called after the version
      - **4.3** Puplishes Packages to npm that version has changed compared on the last release
    
-# 
+  
+# Options
 
 ## [Changeset][1]
 - **1** Edit Packages in Branch develop
