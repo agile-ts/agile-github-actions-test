@@ -11,7 +11,7 @@
      - **4.2** Creates new Release and Tag called after the version
      - **4.3** Puplishes Packages to npm that version has changed compared on the last release
    
-# Options
+# 
 
 ## [Changeset][1]
 - **1** Edit Packages in Branch develop
@@ -27,6 +27,9 @@
      - **3.2** Updates the version based on the generated file in '.changeset'
      - **3.3** Creates pull request back into the master
      - **3.4** 
+     
+## Custom
+TODO
 
 [1]: https://github.com/changesets/action
 
