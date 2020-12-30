@@ -1,12 +1,12 @@
-name: release
+name: Test All Packages
 on:
-  fork: # push
-    branches:
-      - master
+  pull_request:
+    branches: ["*"]
+    types: ["opened", "reopened"]
 
 jobs:
-  release:
-    name: Release
+  publish:
+    name: Test All Packages
     runs-on: ubuntu-latest
     steps:
 
@@ -21,11 +21,13 @@ jobs:
           node-version: 12
 
         # Install Dependencies
-      - name: ⏳ Install Dependencies
+      - name: ⏳ Install
         run: yarn install
 
-        # Creates Release Pull Request with help of 'Changesets'
-      - name: 🚀 Create Release Pull Request
-        uses: changesets/action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # Run Tests
+      - name: 🤔 Test
+        run: yarn test
+
+        # Build Packages for Testing
+      - name: 🔨 Build Packages
+        run: yarn run build
