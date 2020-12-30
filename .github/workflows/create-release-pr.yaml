@@ -39,7 +39,7 @@ jobs:
         uses: zwaldowski/semver-release-action@v1
         with:
           bump: patch
-          prefix: @agile
+          prefix: agile
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
         # Create Release Pull Request
