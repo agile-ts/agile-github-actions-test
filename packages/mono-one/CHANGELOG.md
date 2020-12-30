@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.0.0
+
+### Major Changes
+
+- some changes
+
 ## 1.1.0
 
 ### Minor Changes
