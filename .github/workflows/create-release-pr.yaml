@@ -33,31 +33,28 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-        # Create new Version
-      - name: 🗽 New Version
-        run: yarn run new-version
+        # 🔼 Bump Version
+      - name: Bump Version
+        id: next_version
+        uses: zwaldowski/semver-release-action@v1
+        with:
+          bump: patch
+          prefix: @agile
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
-        # Adds the above created version to the output so that we can get it later in the pull request with 'steps.changelog.outputs.version'
-      - name: 🖋 Set new Version to Output
-        id: changelog
-        shell: bash -ex {0}
-        run: |
-          version=$(node -p 'require("./lerna.json").version')
-          echo "::set-output name=version::${version}"
-
-        # Create the Pull Request
+        # Create Release Pull Request
       - name: 📤 Create Pull Request
         id: create-pull-request
         uses: peter-evans/create-pull-request@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           path: ${{ secrets.GITHUB_PATH }}
-          commit-message: "Update v${{ steps.changelog.outputs.version }}"
+          commit-message: "[WIP] New Version"
           committer: GitHub <noreply@github.com>
           author: "${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>"
           title: "v${{ steps.changelog.outputs.version }}"
           body: |
-            ## v${{ steps.changelog.outputs.version }}
+            ## New Version
 
             ### Breaking Changes
             - [ ] TODO
@@ -68,7 +65,7 @@ jobs:
             ### Bug Fixes
             - [ ] TODO
           labels: "release"
-          branch: "release/${{ steps.changelog.outputs.version }}"
+          branch: "release/next"
 
         # Print some important Notes
       - name: 🏁 Result
@@ -76,4 +73,3 @@ jobs:
           echo "✔️ Finished"
           echo "✔️ Pull Request Number - ${{ steps.create-pull-request.outputs.pr_number }}"
           echo "✔️ Pull Request URL - ${{ steps.create-pull-request.outputs.pull-request-url }}"
-          echo "✔️ Version - ${{ steps.changelog.outputs.version }}"
