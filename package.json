@@ -10,7 +10,7 @@
     "build:test": "lerna run build:test",
     "watch": "lerna run watch",
     "test": "jest",
-    "release": "lerna run prepublish && changeset publish",
+    "release": "lerna run build && changeset publish",
     "create-verion": "changeset",
     "bump-version": "changeset version",
     "dev-publish": "lerna run build && lerna run dev-publish",
