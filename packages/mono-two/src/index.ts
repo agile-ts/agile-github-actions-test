@@ -10,8 +10,7 @@ export default class MonoTwo {
         return this;
     }
 
-
     public getRandomString():string {
-        return "random10";
+        return "random11";
     }
 }

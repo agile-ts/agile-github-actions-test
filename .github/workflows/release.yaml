@@ -23,10 +23,12 @@ jobs:
         run: yarn install
 
         # Create Release Pull Request
-      - name: 📤 Create Pull Request
+      - name: 📤 Create Release Pull Request or Publish to NPM
         uses: changesets/action@master
         with:
           publish: yarn release
+          commit: Version Release
+          title: Next Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
