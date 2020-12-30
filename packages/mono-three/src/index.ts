@@ -9,4 +9,8 @@ export default class MonoThree {
     this.name = value;
     return this;
   }
+
+  public getRandomString():string {
+    return "random0";
+  }
 }
