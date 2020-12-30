@@ -11,8 +11,7 @@
     "watch": "lerna run watch",
     "test": "jest",
     "release": "lerna run build && changeset publish",
-    "create-verion": "changeset",
-    "bump-version": "changeset version",
+    "bump-version": "changeset",
     "dev-publish": "lerna run build && lerna run dev-publish",
     "dev-push": "lerna run build && lerna run dev-push",
     "package-install": "lerna exec npm install"
