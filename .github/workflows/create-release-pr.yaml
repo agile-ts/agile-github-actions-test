@@ -11,7 +11,7 @@ jobs:
       startsWith(github.event.comment.body, '/create release')
     runs-on: ubuntu-latest
     steps:
-      # Checkout Project
+        # Checkout Project
       - name: 📚 Checkout
         uses: actions/checkout@v2
 
@@ -25,51 +25,9 @@ jobs:
       - name: ⏳ Install
         run: yarn install
 
-        # Configure Git User so that it can perform Git Actions like commits
-      - name: 👷 Configure Git User
-        run: |
-          git config --global user.name 'bennodev19'
-          git config --global user.email 'bennodev19@users.noreply.github.com'
+        # Create Release Pull Request
+      - name: 📤 Create Pull Request
+        uses: changesets/action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-        # 🔼 Bump Version
-      - name: Bump Version
-        id: next_version
-        uses: zwaldowski/semver-release-action@v1
-        with:
-          bump: patch
-          prefix: agile
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-
-        # Create Release Pull Request
-      - name: 📤 Create Pull Request
-        id: create-pull-request
-        uses: peter-evans/create-pull-request@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          path: ${{ secrets.GITHUB_PATH }}
-          commit-message: "[WIP] New Version"
-          committer: GitHub <noreply@github.com>
-          author: "${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>"
-          title: "v${{ steps.changelog.outputs.version }}"
-          body: |
-            ## New Version
-
-            ### Breaking Changes
-            - [ ] TODO
-
-            ### Features
-            - [ ] TODO
-
-            ### Bug Fixes
-            - [ ] TODO
-          labels: "release"
-          branch: "release/next"
-
-        # Print some important Notes
-      - name: 🏁 Result
-        run: |
-          echo "✔️ Finished"
-          echo "✔️ Pull Request Number - ${{ steps.create-pull-request.outputs.pr_number }}"
-          echo "✔️ Pull Request URL - ${{ steps.create-pull-request.outputs.pull-request-url }}"
