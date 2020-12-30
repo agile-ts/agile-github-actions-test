@@ -1,5 +1,12 @@
 # Change Log
 
+## 2.0.1
+
+### Patch Changes
+
+- d1eecca: fixed some bugs
+- d1eecca: test
+
 ## 2.0.0
 
 ### Major Changes
