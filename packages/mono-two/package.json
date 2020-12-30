@@ -12,7 +12,9 @@
     "build": "tsc",
     "dev-publish": "yalc publish",
     "dev-push": "yalc push",
-    "watch": "tsc-watch --onSuccess \"npm run dev-push\""
+    "watch": "tsc-watch --onSuccess \"npm run dev-push\"",
+    "build:test": "yarn build --target test",
+    "prepublish": "yarn build --target publish"
   },
   "publishConfig": {
     "access": "public"
