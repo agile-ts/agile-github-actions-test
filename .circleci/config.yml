@@ -1,11 +1,9 @@
 version: 2.1
 
 executors:
-  my-executor:
+  node-executor:
     docker:
       - image: circleci/node:14
-        environment:
-         CI: true
 
 orbs:
   node: circleci/node@4.0.1
@@ -14,7 +12,7 @@ jobs:
 
   build:
     working_directory: ~/agilets # Where the project gets saved in the docker
-    executor: my-executor
+    executor: node-executor
     steps:
       # Checkout Project (only once because the other jobs are waiting for the build job -> there agileTs is already checked out)
       - checkout
@@ -36,14 +34,14 @@ jobs:
 
   test:
     working_directory: ~/agilets # Where the project gets saved in the docker
-    executor: my-executor
+    executor: node-executor
     steps:
       # Test Project
       - run: yarn run test
 
   test-coverage:
     working_directory: ~/agilets # Where the project gets saved in the docker
-    executor: my-executor
+    executor: node-executor
     steps:
       # Run Test Coverage
       - run: yarn test:coverage
