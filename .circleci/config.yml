@@ -11,7 +11,7 @@ orbs:
 jobs:
 
   build:
-    working_directory: ~/agilets # Where the project gets saved in the docker
+    working_directory: ~/repo # Where the project gets saved in the docker container
     executor: node-executor
     steps:
       # Checkout Project (only once because the other jobs are waiting for the build job -> there agileTs is already checked out)
@@ -28,19 +28,19 @@ jobs:
       - run: yarn run build
 
       - persist_to_workspace:
-          root: /agilets
+          root: /repo
           paths:
             - build
 
   test:
-    working_directory: ~/agilets # Where the project gets saved in the docker
+    working_directory: ~/repo # Where the project gets saved in the docker
     executor: node-executor
     steps:
       # Test Project
       - run: yarn run test
 
   test-coverage:
-    working_directory: ~/agilets # Where the project gets saved in the docker
+    working_directory: ~/repo # Where the project gets saved in the docker
     executor: node-executor
     steps:
       # Run Test Coverage
@@ -52,7 +52,7 @@ jobs:
 
       # https://circleci.com/docs/2.0/configuration-reference/#persist_to_workspace
       - persist_to_workspace:
-          root: /agilets
+          root: /repo
           paths:
             - coverage
 
