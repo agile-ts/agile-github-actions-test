@@ -1,12 +1,12 @@
 version: 2.1
 
+orbs:
+  node: circleci/node@4.1.0
+
 executors:
   node-executor:
     docker:
       - image: circleci/node:14
-
-orbs:
-  node: circleci/node@4.1.0
 
 jobs:
 
