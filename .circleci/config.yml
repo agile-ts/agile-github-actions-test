@@ -40,10 +40,6 @@ jobs:
       #      - ./node_modules
 
       - run:
-          name: 🤖 Lint Project
-          command: yarn run lint
-
-      - run:
           name: 🔨 Build Packages
           command: yarn run build
 
