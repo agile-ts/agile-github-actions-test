@@ -6,13 +6,14 @@
   "useWorkspaces": true,
   "version": "independent",
   "changelog": {
-    "repo": "agile-ts/agile",
+    "repo": "agile-ts/github-actions-test",
     "labels": {
       "tag: new feature": ":rocket: New Feature",
       "tag: breaking change": ":boom: Breaking Change",
       "tag: bug fix": ":bug: Bug Fix",
       "tag: polish": ":nail_care: Polish"
     },
+    "nextVersion": ":clock: Coming soon",
     "cacheDir": ".changelog"
   }
 }
